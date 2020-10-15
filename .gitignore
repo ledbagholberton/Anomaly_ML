@@ -2,3 +2,4 @@
 /Data/*.png
 /Test/*.jpg
 /Test/*.png
+*.pyc
