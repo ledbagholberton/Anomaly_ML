@@ -3,3 +3,8 @@
 /Test/*.jpg
 /Test/*.png
 *.pyc
+.i*
+.V*
+ubun*
+.d*
+__*
