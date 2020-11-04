@@ -22,8 +22,9 @@ Output: Images same size as the original
 """
 
 # defining global variable path
-origImage_path = # enter path to image files
-altImage_path = # enter altered image path
+# origImage_path =
+# altImage_path =
+
 
 def loadData(origpath, altpath, origfile_name, altfile_name):
     """
@@ -33,24 +34,12 @@ def loadData(origpath, altpath, origfile_name, altfile_name):
     altimages = altfile_name
     # Put files into lists and return them as one list of size 4
     origImage_files = sorted([os.origpath.join(path, 'images', file)
-                          for file in os.listdir(path + "/images") if
-                          file.endswith('*.jpg')])
+                              for file in os.listdir(path + "/images") if
+                              file.endswith('*.jpg')])
     altImage_files = sorted([os.altpath.join(path, 'altImage', file)
-                          for file in os.listdir(path + "/altIimages") if
-                          file.endswith('*.jpg')])
-
-
+                             for file in os.listdir(path + "/altIimages") if
+                             file.endswith('*.jpg')])
     return origImage_files, altImage_files
-
-def display_two(origImage, altImages, title1 = "Original", title2 = "Edited"):
-    """
-    display images: original, edited
-    """
-    plt.subplot(121), plt.imshow(origImage), plt.title(title1)
-    plt.xticks([]), plt.yticks([])
-    plt.subplot(122), plt.imshow(altImages), plt.title(title2)
-    plt.xticks([]), plt.yticks([])
-    plt.show()
 
 
 def preprocessing_size(origData, altData):
@@ -82,29 +71,6 @@ def preprocessing_size(origData, altData):
     try:
         print("RESIZED {}".format(reszd_img[j]))
     except AttributeError:
-        print ("shape not found")
+        print("shape not found")
 
     return (original, reszd_img)
-
-def make_grey(image):
-    """
-    Image color to grey scale
-    """
-    #for  i in range(len(image)):
-    # segmentation and gray definition
-    gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-    ret, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY_INV + cv2.THRESH_OTSU)
-
-    # display images
-    display_two(image, thresh, "Original", "Grayed")
-    return (gray)
-
-
-
-
-
-
-
-
-
-
