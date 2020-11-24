@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <title>Landing Page - Start Bootstrap Theme</title>
+
+  <!-- Bootstrap core CSS -->
+  <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
+  <link href="{{ url_for('static', filename='vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+
+  <!-- Custom fonts for this template -->
+  <!-- <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet"> -->
+  <link href="{{ url_for('static', filename='vendor/fontawesome-free/css/all.min.css') }}" rel="stylesheet">
+
+  <!-- <link href="vendor/simple-line-icons/css/simple-line-icons.css" rel="stylesheet" type="text/css"> -->
+  <link href="{{ url_for('static', filename='vendor/simple-line-icons/css/simple-line-icons.css') }}" rel="stylesheet" type="text/css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic" rel="stylesheet" type="text/css">
+
+  <!-- Custom styles for this template -->
+  <!-- <link href="css/landing-page.min.css" rel="stylesheet"> -->
+  <link href="{{ url_for('static', filename='css/landing-page.min.css') }}" rel="stylesheet">
+
+</head>
+
+<body>
+
+  <!-- Navigation -->
+  <nav class="navbar navbar-light bg-light static-top">
+    <div class="container">
+      <a class="navbar-brand h1 font-weight-bold" href="#">Anomaly Detection</a>
+      <!-- <a class="btn btn-primary" href="#">Sign In</a> -->
+      <a href="https://github.com/ledbagholberton/Anomaly_ML" target="_blank">
+        <i class="fab fa-github fa-2x fa-fw"></i>
+      </a>
+    </div>
+  </nav>
+
+  <!-- Icons Grid -->
+  <section class="features-icons text-center">
+    <div class="container">
+      <div class="images d-flex flex-column justify-content-center">
+        <form action="/detection" method="POST" enctype="multipart/form-data">
+          <div class="input-group mb-3 ml-4">
+            <div class="ml-5 pl-5"></div>
+            <div class="form-check ml-5 pl-2">
+              <input class="form-check-input" type="radio" name="type_datasets" id="cylinder_dataset" value="cylinder_dataset" checked>
+              <label class="form-check-label" for="exampleRadios2">
+                Cylinder dataset
+              </label>
+            </div>
+            <div class="form-check ml-4">
+              <input class="form-check-input" type="radio" name="type_datasets" id="cracks_dataset" value="cracks_dataset">
+              <label class="form-check-label" for="exampleRadios1">
+                Cracks dataset
+              </label>
+            </div>
+          </div>
+          <div class="d-flex justify-content-center">
+            <div class="d-flex justify-content-center align-items-center flex-column mr-4">
+              <div class="form-group">
+                <input type="file" class="form-control-file" id="file" name="file">
+              </div>
+              <img src="{{ path_upload_image }}" id="upload_image" alt="image" width="400" height="400">
+              <div class="alert alert-info mt-2" role="alert">
+                Original image
+              </div>
+            </div> 
+  
+            <div class="d-flex justify-content-center align-items-center flex-column">
+              <button type="submit" class="btn btn-primary mb-2">Analyze</button>
+              <img src="{{ path_output_image }}" id="output_image" alt="image" width="400" height="400">
+              <div class="alert alert-info mt-2" role="alert">
+                {{ label }}
+              </div>
+            </div>
+          </div>
+
+        </form>
+      </div>
+    </div>
+  </section>
+    
+  <!-- Authors -->
+  <section class="testimonials text-center bg-light" id='authors'>
+    <div class="container">
+      <h2 class="mb-5">Authors</h2>
+      <div class="row">
+        <div class="col-lg-3">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="static/authors/mia.png" alt="">
+            <h5>Mia L Morton</h5>
+            <p class="font-weight-light mb-0">Educator, Software Engineer</p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="static/authors/abdel.png" alt="">
+            <h5>Abdel Perez</h5>
+            <p class="font-weight-light mb-0">Electronic Engineer – MBA, Full Stack Developer</p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="static/authors/heimer.png" alt="">
+            <h5>Heimer Rojas</h5>
+            <p class="font-weight-light mb-0">Electronic Engineer, Entrepreneur - Software Engineer</p>
+          </div>
+        </div>
+        <div class="col-lg-3">
+          <div class="testimonial-item mx-auto mb-5 mb-lg-0">
+            <img class="img-fluid rounded-circle mb-3" src="static/authors/xica.png" alt="">
+            <h5>Ximena Andrade</h5>
+            <p class="font-weight-light mb-0">"Psychologist, Software Engineer, Mechatronic Engineer"</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-6 h-100 text-center text-lg-left my-auto">
+          <ul class="list-inline mb-2">
+            <li class="list-inline-item">
+              <a href="#">Home</a>
+            </li>
+            <li class="list-inline-item">&sdot;</li>
+            <li class="list-inline-item">
+              <a href="#authors">Authors</a>
+            </li>
+          </ul>
+          <p class="text-muted small mb-4 mb-lg-0">&copy; Your Website 2020. All Rights Reserved.</p>
+        </div>
+        <div class="col-lg-6 h-100 text-center text-lg-right my-auto">
+          <ul class="list-inline mb-0">
+            <li class="list-inline-item mr-3">
+              <a href="https://github.com/ledbagholberton/Anomaly_ML" target="_blank">
+                <i class="fab fa-github fa-2x fa-fw"></i>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap core JavaScript -->
+  
+  <!-- <script src="vendor/jquery/jquery.min.js"></script> -->
+  <script src="{{ url_for('static', filename='vendor/jquery/jquery.min.js') }}"></script>
+
+  <!-- <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script> -->
+  <script src="{{ url_for('static', filename='vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+
+  <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+
+</html>
