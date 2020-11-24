@@ -196,8 +196,10 @@ def create_child(path):
     return element_instance
 
 # ==============================================================================
-generate_data(1, 1,
-              backgronds_pattern="data/backgrounds/*",
-              objects_pattern="data/objects/*",
-              output_dir="data/output",
-              show=False)
+if __name__ == '__main__':
+    generate_data(n_samples=5,
+                  n_objects=3,
+                  backgronds_pattern="data/backgrounds/*",
+                  objects_pattern="data/objects/*",
+                  output_dir="data/output",
+                  show=False)
